@@ -1,0 +1,143 @@
+class apb_mas_sequence extends uvm_sequence#(apb_seq_item);
+ //apb_seq_item req; 
+  `uvm_object_utils(apb_mas_sequence)
+ 
+  function new(string name="apb_mas_sequence");
+    super.new(name);
+  endfunction:new
+
+
+ task body();
+	//  req = apb_seq_item::type_id::create("req");
+	//	repeat(5) `uvm_do_with(req ,{req.pwrite==1'b1;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 8'h11;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 8'h22;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 8'h33;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 8'h44;})
+	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h17;})
+	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h1b;})
+	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h19;})
+	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h1c;})
+ endtask:body
+
+//here we are taking randomization instead mannual
+/*
+  task body();
+ // `uvm_do(req);
+  repeat(4)
+  begin
+    req = apb_seq_item::type_id::create("req");
+    start_item(req);
+    assert(req.randomize());
+  //  req.print();
+    finish_item(req);
+    end 
+  endtask
+*/
+
+endclass:apb_mas_sequence
+
+
+///////////////////////// write only sequence///////////////////
+class apb_mas_sequence1 extends uvm_sequence#(apb_seq_item);
+ //apb_seq_item req; 
+  `uvm_object_utils(apb_mas_sequence1)
+ 
+  function new(string name="apb_mas_sequence1");
+    super.new(name);
+  endfunction:new
+
+
+ task body();
+	//  req = apb_seq_item::type_id::create("req");
+	//	repeat(5) `uvm_do_with(req ,{req.pwrite==1'b1;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 8'h11;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 8'h22;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 8'h33;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 8'h44;})
+ endtask:body
+
+endclass:apb_mas_sequence1
+
+
+
+
+
+
+
+//////////////////////////// read only ////////////////////////////
+class apb_mas_sequence2 extends uvm_sequence#(apb_seq_item);
+ //apb_seq_item req; 
+  `uvm_object_utils(apb_mas_sequence2)
+ 
+  function new(string name="apb_mas_sequence2");
+    super.new(name);
+  endfunction:new
+
+
+ task body();
+	//  req = apb_seq_item::type_id::create("req");
+	//	repeat(5) `uvm_do_with(req ,{req.pwrite==1'b1;})
+	`uvm_do_with(req, { req.pwrite == 1'b0;})
+	`uvm_do_with(req, { req.pwrite == 1'b0;})
+	`uvm_do_with(req, { req.pwrite == 1'b0;})
+	`uvm_do_with(req, { req.pwrite == 1'b0;})
+ endtask:body
+
+endclass:apb_mas_sequence2
+
+
+///////////////////////////write fallowed by read/////////////////////////
+
+class apb_mas_sequence3 extends uvm_sequence#(apb_seq_item);
+	`uvm_object_utils(apb_mas_sequence3)
+
+	//constructor function
+	function new(string name="apb_mas_sequencer3");
+		super.new(name);
+	endfunction:new
+
+	task body();
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 8'h11;})	
+	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h17;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 8'h22;})
+	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h1b;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 8'h33;})
+	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h19;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 8'h44;})
+	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h1c;})
+	endtask:body
+endclass:apb_mas_sequence3
+
+
+
+
+
+/////////////////////////////// randome write testname=rnd_wrt/////////////////////////
+
+//here we are taking randomization instead mannual
+
+class apb_mas_sequence4 extends uvm_sequence#(apb_seq_item);
+	`uvm_object_utils(apb_mas_sequence4)
+
+	//constructor function
+	function new(string name="apb_mas_sequencer4");
+		super.new(name);
+	endfunction:new
+
+  task body();
+
+ // `uvm_do(req)
+ repeat(4)
+  begin
+	  req = apb_seq_item::type_id::create("req");
+
+       start_item(req);
+    assert(req.randomize());
+  //  req.print();
+    finish_item(req);
+    end  
+  endtask
+endclass:apb_mas_sequence4
+
+

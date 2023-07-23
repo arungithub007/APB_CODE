@@ -1,0 +1,17 @@
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+Start time: 11:11:09 on Jul 11,2023
+vlog "+acc" -sv ../dut/apb_slave.v "+indir+../dut" ../tb/testbench.sv "+indir+../tb" -l -coverage comp.log 
+-- Compiling module apb_slave
+** Note: (vlog-2286) ../tb/testbench.sv(11): Using implicit +incdir+C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+-- Compiling interface apb_intf
+** Warning: ** while parsing file included at ../tb/testbench.sv(12)
+** at ..\tb\interface.sv(30): (vlog-2244) Variable 'cvg' is implicitly static. You must either explicitly declare it as static or automatic
+or remove the initialization in the declaration of variable.
+** Warning: ** while parsing file included at ../tb/testbench.sv(12)
+** at ..\tb\interface.sv(33): (vlog-2240) Treating stand-alone use of function 'get_inst_coverage' as an implicit VOID cast.
+** Error: (vlog-13069) ** while parsing file included at ../tb/testbench.sv(23)
+** at ..\tb\test.sv(298): near "force": syntax error, unexpected force, expecting function or task or "SystemVerilog keyword 'pure'".
+** Error: (vlog-7) Failed to open design unit file "comp.log" in read mode.
+No such file or directory. (errno = ENOENT)
+End time: 11:11:09 on Jul 11,2023, Elapsed time: 0:00:00
+Errors: 2, Warnings: 2

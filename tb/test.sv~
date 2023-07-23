@@ -1,0 +1,233 @@
+class apb_test extends uvm_test;   //base test
+  `uvm_component_utils(apb_test)
+
+   apb_mas_conf m_conf;
+   apb_env env;
+   apb_mas_sequence seq;
+
+//constuctor function
+ function new(string name = "apb_test",uvm_component parent=null);
+    super.new(name,parent);
+ endfunction:new
+
+ //buid phase
+ virtual function void build_phase(uvm_phase phase);
+   super.build_phase(phase);
+  m_conf=apb_mas_conf::type_id::create("m_conf");
+  env = apb_env::type_id::create("env", this);
+  seq = apb_mas_sequence::type_id::create("seq");
+ 
+  //setting mas_conf in buid phase of the base test
+uvm_config_db#(apb_mas_conf)::set(null,"*","apb_mas_conf",m_conf);
+ endfunction : build_phase
+  
+ //run phase
+   task run_phase(uvm_phase phase);
+	   phase.raise_objection(this);
+	   seq.start(env.agnt1.mas_sequencer);
+   #50;
+    phase.drop_objection(this);
+    
+   endtask : run_phase
+  
+ endclass :apb_test
+
+
+ /*
+ 
+Create a test cases 
+
+1. Write only 
+2.read only 
+3. Write followed by Read ( WR WR WR WR) 
+4.random write and reads ( WRWWWRRWW )
+5.write with wait states 
+6.Write Read with wiar states.
+			
+*/
+
+
+////////////////////////  write only  ////////////////////////
+
+class wrt_only extends uvm_test;   //write only extends from apb_test i.e.,base test
+  `uvm_component_utils(wrt_only)
+
+   apb_mas_conf m_conf;
+   apb_env env;
+   apb_mas_sequence1 seq1;
+
+//constuctor function
+ function new(string name = "wrt_only",uvm_component parent=null);
+    super.new(name,parent);
+ endfunction:new
+
+ //buid phase
+ virtual function void build_phase(uvm_phase phase);
+   super.build_phase(phase);
+  m_conf=apb_mas_conf::type_id::create("m_conf");
+  env = apb_env::type_id::create("env", this);
+  seq1 = apb_mas_sequence1::type_id::create("seq1");
+ 
+  //setting mas_conf in buid phase of the base test
+uvm_config_db#(apb_mas_conf)::set(null,"*","apb_mas_conf",m_conf);
+ endfunction : build_phase
+  
+ //run phase
+   task run_phase(uvm_phase phase);
+	   phase.raise_objection(this);
+	   seq1.start(env.agnt1.mas_sequencer);
+   #50;
+    phase.drop_objection(this);
+    
+   endtask : run_phase
+  
+ endclass :wrt_only
+
+
+
+
+
+
+
+
+
+/////////////// read only /////////////////
+
+class rd_only extends uvm_test;   //read only extends from uvm_test
+  `uvm_component_utils(rd_only)
+
+   apb_mas_conf m_conf;
+   apb_env env;
+   apb_mas_sequence2 seq2;
+
+//constuctor function
+ function new(string name = "wrt_only",uvm_component parent=null);
+    super.new(name,parent);
+ endfunction:new
+
+ //buid phase
+ virtual function void build_phase(uvm_phase phase);
+   super.build_phase(phase);
+  m_conf=apb_mas_conf::type_id::create("m_conf");
+  env = apb_env::type_id::create("env", this);
+  seq2 = apb_mas_sequence2::type_id::create("seq2");
+ 
+  //setting mas_conf in buid phase of the base test
+uvm_config_db#(apb_mas_conf)::set(null,"*","apb_mas_conf",m_conf);
+ endfunction : build_phase
+  
+ //run phase
+   task run_phase(uvm_phase phase);
+	   phase.raise_objection(this);
+	   seq2.start(env.agnt1.mas_sequencer);
+   #50;
+    phase.drop_objection(this);
+    
+   endtask : run_phase
+  
+ endclass :rd_only
+
+
+
+
+
+
+
+/////////////////  Write followed by Read ( WR WR WR WR) testname=wrt_fldb_rd ///////////////////
+
+
+class wrt_fldb_rd extends uvm_test;   //read only extends from uvm_test
+  `uvm_component_utils(wrt_fldb_rd)
+
+   apb_mas_conf m_conf;
+   apb_env env;
+   apb_mas_sequence3 seq3;
+
+//constuctor function
+ function new(string name = "wrt_fldb_rd",uvm_component parent=null);
+    super.new(name,parent);
+ endfunction:new
+
+ //buid phase
+ virtual function void build_phase(uvm_phase phase);
+   super.build_phase(phase);
+  m_conf=apb_mas_conf::type_id::create("m_conf");
+  env = apb_env::type_id::create("env", this);
+  seq3 = apb_mas_sequence3::type_id::create("seq3");
+ 
+  //setting mas_conf in buid phase of the base test
+uvm_config_db#(apb_mas_conf)::set(null,"*","apb_mas_conf",m_conf);
+ endfunction : build_phase
+  
+ //run phase
+   task run_phase(uvm_phase phase);
+	   phase.raise_objection(this);
+	   seq3.start(env.agnt1.mas_sequencer);
+   #50;
+    phase.drop_objection(this);
+    
+   endtask : run_phase
+  
+ endclass :wrt_fldb_rd
+
+
+
+
+
+
+
+
+
+
+///////////////////// random write and reads ( WRWWWRRWW ) ///////////////////
+
+class rnd_wrt extends uvm_test;   //read only extends from uvm_test
+  `uvm_component_utils(rnd_wrt)
+
+   apb_mas_conf m_conf;
+   apb_env env;
+   apb_mas_sequence4 seq4;
+
+//constuctor function
+ function new(string name = "rnd_wrt",uvm_component parent=null);
+    super.new(name,parent);
+ endfunction:new
+
+ //buid phase
+ virtual function void build_phase(uvm_phase phase);
+   super.build_phase(phase);
+  m_conf=apb_mas_conf::type_id::create("m_conf");
+  env = apb_env::type_id::create("env", this);
+  seq4 = apb_mas_sequence4::type_id::create("seq4");
+ 
+  //setting mas_conf in buid phase of the base test
+uvm_config_db#(apb_mas_conf)::set(null,"*","apb_mas_conf",m_conf);
+ endfunction : build_phase
+  
+ //run phase
+   task run_phase(uvm_phase phase);
+	   phase.raise_objection(this);
+	   seq4.start(env.agnt1.mas_sequencer);
+   #50;
+           phase.drop_objection(this);
+    
+   endtask : run_phase
+  
+ endclass :rnd_wrt
+
+
+
+
+
+
+
+/////////////////////// write with wait states ///////////////////////
+
+
+
+
+
+
+
+
+///////////////////////// Write Read with wiar states /////////////////////

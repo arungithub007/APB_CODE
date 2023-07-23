@@ -1,0 +1,22 @@
+class apb_mas_conf extends uvm_object;
+`uvm_object_utils(apb_mas_conf)
+
+//vertual interface handle declaration
+virtual apb_intf      vif; 
+
+
+//declaretion of the fields needed
+int no_slave=1;
+int no_master=1;
+bit insert_wait_cycle;
+int no_wait_cycle=1;
+
+
+uvm_active_passive_enum active=UVM_ACTIVE;
+
+//constructor function
+function new(string  name="apb_mas_conf");
+super.new(name);
+endfunction:new
+
+endclass:apb_mas_conf

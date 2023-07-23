@@ -1,0 +1,13 @@
+../dut/apb_slave.v
+../tb/env.sv
+../tb/interface.sv
+../tb/m_agent.sv
+../tb/m_conf.sv
+../tb/m_driver.sv
+../tb/m_monitor.sv
+../tb/m_seq_item.sv
+../tb/m_sequence.sv
+../tb/m_sequencer_t.sv
+../tb/scoreboard.sv
+../tb/test.sv
+../tb/testbench.sv

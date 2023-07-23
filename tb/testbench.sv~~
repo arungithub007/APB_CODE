@@ -1,0 +1,53 @@
+
+	//`include "design.v"
+`include "uvm_macros.svh"
+        import uvm_pkg::*;
+        `include "interface.sv"
+        `include "m_seq_item.sv"
+	`include "m_sequence.sv"
+        `include "m_sequencer_t.sv"
+	`include "m_driver.sv"
+        `include "m_monitor.sv"
+	`include "m_agent.sv"
+	`include "scoreboard.sv"
+	`include "env.sv"
+        `include "test.sv"
+
+	
+
+module tb_top;
+bit clk, rst_n;
+
+  
+  apb_intf intf(clk, rst_n); //interface handle
+  
+ always #5 clk=~clk;
+
+  initial begin
+	rst_n = 0;
+
+   	#5 rst_n=1;
+  end
+
+  apb_slave dut(
+    .clk(intf.clk),
+    .rst_n(intf.rst_n),
+    .paddr(intf.paddr),
+    .pwrite(intf.pwrite),
+    .psel(intf.psel),
+    .penable(intf.penable),
+    .pwdata(intf.pwdata),
+    .prdata(intf.prdata)); //dut instantation
+
+
+
+
+  initial begin
+
+	  uvm_config_db#(virtual apb_intf)::set(null,"*","vif",intf);  //config db set_up
+  
+          run_test("apb_test");
+
+  end
+endmodule
+ 

@@ -1,0 +1,103 @@
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>Questa Coverage Report</title>
+  <link rel="StyleSheet" media="screen" href="../css/hdl2html.css"/>
+</head>
+<body id="hdl2html">
+  <tt>
+<pre>
+<a name="1"><q-n>     1  </q-n></a><q-m>//////////////////////////////////////////////////////////////////////////////</q-m>
+<a name="2"><q-n>     2  </q-n></a><q-m>//</q-m>
+<a name="3"><q-n>     3  </q-n></a><q-m>// All verification components, interfaces and DUT are instantiated in a TOPLEVEL module called TESTBENCH. </q-m>
+<a name="4"><q-n>     4  </q-n></a><q-m>// It is a static container to hold everything required to be simulated and becomes the ROOT node in the Heirachy</q-m>
+<a name="5"><q-n>     5  </q-n></a><q-m>//</q-m>
+<a name="6"><q-n>     6  </q-n></a><q-m>/////////////////////////////////////////////////////////////////////////////</q-m>
+<a name="7"><q-n>     7  </q-n></a>
+<a name="8"><q-n>     8  </q-n></a>
+<a name="9"><q-n>     9  </q-n></a>
+<a name="10"><q-n>     10  </q-n></a>	<q-m>//`include "design.v"               "following is the include heirarchy </q-m>
+<a name="11"><q-n>     11  </q-n></a>      `<q-i>include</q-w> <q-l>"uvm_macros.svh"</q-l>         <q-m>//include uvm_macros.svh</q-m>
+<a name="12"><q-n>     12  </q-n></a>        `<q-i>include</q-w> <q-l>"interface.sv"</q-l>         <q-m>//interface</q-m>
+<a name="13"><q-n>     13  </q-n></a>         <q-w>import</q-w> uvm_pkg::*;             <q-m>//import uvm_pkg</q-m>
+<a name="14"><q-n>     14  </q-n></a>        `<q-i>include</q-w> <q-l>"m_conf.sv"</q-l>            <q-m>//configuration file </q-m>
+<a name="15"><q-n>     15  </q-n></a>        `<q-i>include</q-w> <q-l>"m_seq_item.sv"</q-l>        <q-m>//Seq_item</q-m>
+<a name="16"><q-n>     16  </q-n></a>	    `<q-i>include</q-w> <q-l>"m_sequence.sv"</q-l>        <q-m>//sequence</q-m>
+<a name="17"><q-n>     17  </q-n></a>        `<q-i>include</q-w> <q-l>"m_sequencer_t.sv"</q-l>     <q-m>//seqencer</q-m>
+<a name="18"><q-n>     18  </q-n></a>	    `<q-i>include</q-w> <q-l>"m_driver.sv"</q-l>          <q-m>//driver</q-m>
+<a name="19"><q-n>     19  </q-n></a>        `<q-i>include</q-w> <q-l>"m_monitor.sv"</q-l>         <q-m>//monitor</q-m>
+<a name="20"><q-n>     20  </q-n></a>	    `<q-i>include</q-w> <q-l>"m_agent.sv"</q-l>           <q-m>//agent</q-m>
+<a name="21"><q-n>     21  </q-n></a>	    `<q-i>include</q-w> <q-l>"scoreboard.sv"</q-l>        <q-m>//scoreboard</q-m>
+<a name="22"><q-n>     22  </q-n></a>	    `<q-i>include</q-w> <q-l>"env.sv"</q-l>               <q-m>//environment</q-m>
+<a name="23"><q-n>     23  </q-n></a>        `<q-i>include</q-w> <q-l>"test.sv"</q-l>              <q-m>//base test</q-m>
+<a name="24"><q-n>     24  </q-n></a>
+<a name="25"><q-n>     25  </q-n></a>	
+<a name="26"><q-n>     26  </q-n></a>
+<a name="27"><q-n>     27  </q-n></a><q-w>module</q-w> tb_top;
+<a name="28"><q-n>     28  </q-n></a><q-w>reg</q-w> clk, rst_n;
+<a name="29"><q-n>     29  </q-n></a>
+<a name="30"><q-n>     30  </q-n></a>  apb_slave dut(
+<a name="31"><q-n>     31  </q-n></a>    .clk(intf.clk),
+<a name="32"><q-n>     32  </q-n></a>    .rst_n(intf.rst_n),
+<a name="33"><q-n>     33  </q-n></a>    .paddr(intf.paddr),
+<a name="34"><q-n>     34  </q-n></a>    .pwrite(intf.pwrite),
+<a name="35"><q-n>     35  </q-n></a>    .psel(intf.psel),
+<a name="36"><q-n>     36  </q-n></a>    .penable(intf.penable),
+<a name="37"><q-n>     37  </q-n></a>    .pready(intf.pready),
+<a name="38"><q-n>     38  </q-n></a>    .pwdata(intf.pwdata),
+<a name="39"><q-n>     39  </q-n></a>    .prdata(intf.prdata)); <q-m>//dut instantation</q-m>
+<a name="40"><q-n>     40  </q-n></a>
+<a name="41"><q-n>     41  </q-n></a>  apb_intf intf(clk, rst_n); <q-m>//interface handle</q-m>
+<a name="42"><q-n>     42  </q-n></a>  
+<a name="43"><q-n>     43  </q-n></a>  <q-w>initial</q-w> <q-w>begin</q-w>
+<a name="44"><q-n>     44  </q-n></a>	  clk=0;
+<a name="45"><q-n>     45  </q-n></a>	  <q-w>forever</q-w> #5 clk=~clk;
+<a name="46"><q-n>     46  </q-n></a>  <q-w>end</q-w>
+<a name="47"><q-n>     47  </q-n></a>
+<a name="48"><q-n>     48  </q-n></a>  <q-w>initial</q-w> <q-w>begin</q-w>
+<a name="49"><q-n>     49  </q-n></a>	rst_n = 0;
+<a name="50"><q-n>     50  </q-n></a>   	<q-w>repeat</q-w>(2) @(<q-a>posedge</q-w> clk)
+<a name="51"><q-n>     51  </q-n></a>	rst_n=1;
+<a name="52"><q-n>     52  </q-n></a><q-w>end</q-w>
+<a name="53"><q-n>     53  </q-n></a>
+<a name="54"><q-n>     54  </q-n></a>
+<a name="55"><q-n>     55  </q-n></a><q-m>/*</q-m>
+<a name="56"><q-n>     56  </q-n></a><q-m></q-m>
+<a name="57"><q-n>     57  </q-n></a><q-m>Create a test cases </q-m>
+<a name="58"><q-n>     58  </q-n></a><q-m></q-m>
+<a name="59"><q-n>     59  </q-n></a><q-m>1. Write only </q-m>
+<a name="60"><q-n>     60  </q-n></a><q-m>2.read only </q-m>
+<a name="61"><q-n>     61  </q-n></a><q-m>3. Write followed by Read ( WR WR WR WR) </q-m>
+<a name="62"><q-n>     62  </q-n></a><q-m>4.random write and reads ( WRWWWRRWW )</q-m>
+<a name="63"><q-n>     63  </q-n></a><q-m>5.write with wait states </q-m>
+<a name="64"><q-n>     64  </q-n></a><q-m>6.Write Read withwiarstates.</q-m>
+<a name="65"><q-n>     65  </q-n></a><q-m>			</q-m>
+<a name="66"><q-n>     66  </q-n></a><q-m>*/</q-m>
+<a name="67"><q-n>     67  </q-n></a>
+<a name="68"><q-n>     68  </q-n></a>
+<a name="69"><q-n>     69  </q-n></a>  <q-w>initial</q-w> <q-w>begin</q-w>
+<a name="70"><q-n>     70  </q-n></a>
+<a name="71"><q-n>     71  </q-n></a>	uvm_config_db#(<q-w>virtual</q-w> apb_intf)::set(<q-w>null</q-w>,<q-l>"*"</q-l>,<q-l>"vif"</q-l>,intf);  <q-m>//config db set_up</q-m>
+<a name="72"><q-n>     72  </q-n></a>    
+<a name="73"><q-n>     73  </q-n></a>       <q-w>force</q-w> $root.tb_top.dut.pready=0;
+<a name="74"><q-n>     74  </q-n></a>
+<a name="75"><q-n>     75  </q-n></a>    run_test(<q-l>"apb_test"</q-l>); 	<q-m>// make test</q-m>
+<a name="76"><q-n>     76  </q-n></a>	  
+<a name="77"><q-n>     77  </q-n></a> <q-m>//	  run_test("wrt_only"); 	// make test1</q-m>
+<a name="78"><q-n>     78  </q-n></a> <q-m>//	  run_test("rd_only");  	// make test2</q-m>
+<a name="79"><q-n>     79  </q-n></a>  <q-m>//  run_test("wrt_fldb_rd"); 	// make test3</q-m>
+<a name="80"><q-n>     80  </q-n></a> <q-m>//	  run_test("rnd_wrt_rd");  	// make {rand} test4 </q-m>
+<a name="81"><q-n>     81  </q-n></a> <q-m>//	 run_test("wrt_rd_wit_st"); // make {wait} test5</q-m>
+<a name="82"><q-n>     82  </q-n></a> <q-m>//	 run_test("wrt_wit_st");    // make {wait} teat6</q-m>
+<a name="83"><q-n>     83  </q-n></a>    
+<a name="84"><q-n>     84  </q-n></a>     <q-m>// run_test();</q-m>
+<a name="85"><q-n>     85  </q-n></a>  <q-w>end</q-w>
+<a name="86"><q-n>     86  </q-n></a><q-w>endmodule</q-w>
+<a name="87"><q-n>     87  </q-n></a> 
+</pre>
+</tt>
+
+  
+</body>
+</html>

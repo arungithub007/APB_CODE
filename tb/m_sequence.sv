@@ -22,12 +22,12 @@ class apb_mas_sequence extends uvm_sequence#(apb_seq_item);
  task body();
 	//  req = apb_seq_item::type_id::create("req");
 	//	repeat(5) `uvm_do_with(req ,{req.pwrite==1'b1;})
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 8'h11;})
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 8'h22;})
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 8'h33;})
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 8'h44;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 32'h11;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 32'h22;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 32'h33;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 32'h44;})
 	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h17;})
-	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 6'h1b;})
+	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h1b;})
 	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h19;})
 	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h1c;})
  endtask:body
@@ -63,10 +63,10 @@ class apb_mas_sequence1 extends uvm_sequence#(apb_seq_item);
  task body();
 	//  req = apb_seq_item::type_id::create("req");
 	//	repeat(5) `uvm_do_with(req ,{req.pwrite==1'b1;})
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 8'h11;})
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 8'h22;})
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 8'h33;})
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 8'h44;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 32'h11;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 32'h22;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 32'h33;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 32'h44;})
  endtask:body
 
 endclass:apb_mas_sequence1
@@ -108,13 +108,13 @@ class apb_mas_sequence3 extends uvm_sequence#(apb_seq_item);
 	endfunction:new
 
 	task body();
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 8'h11;})	
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 32'h11;})	
 	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h17;})
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 8'h22;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 32'h22;})
 	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h1b;})
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 8'h33;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 32'h33;})
 	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h19;})
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 8'h44;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 32'h44;})
 	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h1c;})
 	endtask:body                            
 endclass:apb_mas_sequence3
@@ -145,7 +145,6 @@ endtask:body
 task body();
   repeat(5)begin
 	  req = apb_seq_item::type_id::create("req");
-
        start_item(req);
        req.randomize();
   //  req.print();
@@ -168,10 +167,10 @@ class apb_mas_sequence5 extends uvm_sequence#(apb_seq_item);
 	endfunction:new
 
     task body();
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 8'h11;})
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 8'h22;})
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 8'h33;})
-	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 8'h44;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 32'h11;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 32'h22;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 32'h33;})
+	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 32'h44;})
 	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h17;})
 	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 6'h1b;})
 	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h19;})

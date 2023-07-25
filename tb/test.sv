@@ -336,7 +336,11 @@ function void conff();
      
 	  phase.raise_objection(this);
      fork
+     begin 
      #20 wait_state();
+     #20 wait_state();
+     #20 wait_state(); 
+     end 
       seq5.start(env.agnt1[0].mas_sequencer);
       #50;
      join 

@@ -12,13 +12,13 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-# vsim -i tb_top "+UVM_OBJECTION_TRACE" "+UVM_TESTNAME=apb_test" -do "add wave -position insertpoint sim:/tb_top/intf/*; coverage save -onexit <TESTSET_CODE_COVER>.ucdb;run -all;quit" -coverage -voptargs="+cover=bcfst" -l sim.log 
-# Start time: 10:59:49 on Jul 21,2023
+# vsim -i -vopt tb_top "+UVM_TESTNAME=rnd_wrt_rd" -do "add wave -position insertpoint sim:/tb_top/intf/*; coverage save -onexit <TESTSET_CODE_COVER>.ucdb; run -all;quit" -coverage -voptargs="+cover=bcfst" -l sim.log 
+# Start time: 11:39:22 on Jul 24,2023
 # ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: ..\tb\interface.sv(30): (vopt-2244) Variable 'cvg' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: ..\tb\interface.sv(44): (vopt-2244) Variable 'cvg' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: ..\tb\interface.sv(33): (vopt-2240) Treating stand-alone use of function 'get_inst_coverage' as an implicit VOID cast.
-# ** Warning: ..\tb\interface.sv(30): (vopt-2244) Variable 'cvg' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: ..\tb\interface.sv(47): (vopt-2240) Treating stand-alone use of function 'get_inst_coverage' as an implicit VOID cast.
+# ** Warning: ..\tb\interface.sv(44): (vopt-2244) Variable 'cvg' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
 # Loading sv_std.std
 # Loading mtiUvm.uvm_pkg
@@ -31,7 +31,7 @@
 # Loading C:/questasim64_10.7c/uvm-1.1d\win64\uvm_dpi.dll
 # add wave -position insertpoint sim:/tb_top/intf/*
 #  coverage save -onexit <TESTSET_CODE_COVER>.ucdb
-# run -all
+#  run -all
 # ----------------------------------------------------------------
 # UVM-1.1d
 # (C) 2007-2013 Mentor Graphics Corporation
@@ -52,10 +52,22 @@
 # 
 #       (Specify +UVM_NO_RELNOTES to turn off this notice)
 # 
+# ** Warning: (vsim-8547) After dropping the illegal, ignore or invalid values, the values list associated with fixed-size array sub bin 'c9[1]' in Coverpoint 'PADDR' of Covergroup instance '\/tb_top/intf/#ublk#109445926#43/cvg ' has converged to empty list. The sub bin will be taken out of coverage calculation.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_top/intf
+# ** Warning: (vsim-8547) After dropping the illegal, ignore or invalid values, the values list associated with fixed-size array sub bin 'c9[2]' in Coverpoint 'PADDR' of Covergroup instance '\/tb_top/intf/#ublk#109445926#43/cvg ' has converged to empty list. The sub bin will be taken out of coverage calculation.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_top/intf
+# ** Warning: (vsim-8547) After dropping the illegal, ignore or invalid values, the values list associated with fixed-size array sub bin 'c11[1]' in Coverpoint 'PWDATA' of Covergroup instance '\/tb_top/intf/#ublk#109445926#43/cvg ' has converged to empty list. The sub bin will be taken out of coverage calculation.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_top/intf
+# ** Warning: (vsim-8547) After dropping the illegal, ignore or invalid values, the values list associated with fixed-size array sub bin 'c11[2]' in Coverpoint 'PWDATA' of Covergroup instance '\/tb_top/intf/#ublk#109445926#43/cvg ' has converged to empty list. The sub bin will be taken out of coverage calculation.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_top/intf
+# ** Warning: (vsim-8547) After dropping the illegal, ignore or invalid values, the values list associated with fixed-size array sub bin 'c13[1]' in Coverpoint 'PRDATA' of Covergroup instance '\/tb_top/intf/#ublk#109445926#43/cvg ' has converged to empty list. The sub bin will be taken out of coverage calculation.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_top/intf
+# ** Warning: (vsim-8547) After dropping the illegal, ignore or invalid values, the values list associated with fixed-size array sub bin 'c13[2]' in Coverpoint 'PRDATA' of Covergroup instance '\/tb_top/intf/#ublk#109445926#43/cvg ' has converged to empty list. The sub bin will be taken out of coverage calculation.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_top/intf
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(216) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
 # Coverage = 0.000000
-# UVM_INFO @ 0: reporter [RNTST] Running test apb_test...
+# UVM_INFO @ 0: reporter [RNTST] Running test rnd_wrt_rd...
 # ----------------------------------------------
 # Name                 Type          Size  Value
 # ----------------------------------------------
@@ -69,203 +81,109 @@
 # -------------------------------------------------------------------------
 # Name                         Type                             Size  Value
 # -------------------------------------------------------------------------
-# uvm_test_top                 apb_test                         -     @472 
+# uvm_test_top                 rnd_wrt_rd                       -     @472 
 #   env                        apb_env                          -     @480 
-#     agnt1                    apb_mas_agnt                     -     @505 
-#       drv                    apb_mas_driver                   -     @622 
-#         drv2scb              uvm_analysis_port                -     @645 
-#         rsp_port             uvm_analysis_port                -     @637 
-#         seq_item_port        uvm_seq_item_pull_port           -     @629 
-#       mas_sequencer          apb_mas_sequencer                -     @513 
-#         rsp_export           uvm_analysis_export              -     @520 
-#         seq_item_export      uvm_seq_item_pull_imp            -     @614 
+#     agnt1                    apb_mas_agnt                     -     @504 
+#       drv                    apb_mas_driver                   -     @621 
+#         drv2scb              uvm_analysis_port                -     @644 
+#         rsp_port             uvm_analysis_port                -     @636 
+#         seq_item_port        uvm_seq_item_pull_port           -     @628 
+#       mas_sequencer          apb_mas_sequencer                -     @512 
+#         rsp_export           uvm_analysis_export              -     @519 
+#         seq_item_export      uvm_seq_item_pull_imp            -     @613 
 #         arbitration_queue    array                            0     -    
 #         lock_queue           array                            0     -    
 #         num_last_reqs        integral                         32    'd1  
 #         num_last_rsps        integral                         32    'd1  
-#       mon                    apb_mas_monitor                  -     @653 
-#         item_collected_port  uvm_analysis_port                -     @672 
-#     scb                      apb_scb                          -     @496 
-#       drv2scb_export         uvm_analysis_imp_drv2scb         -     @690 
-#       item_collected_export  uvm_analysis_imp_item_collected  -     @682 
+#       mon                    apb_mas_monitor                  -     @652 
+#         item_collected_port  uvm_analysis_port                -     @671 
+#     scb                      apb_scb                          -     @495 
+#       drv2scb_export         uvm_analysis_imp_drv2scb         -     @689 
+#       item_collected_export  uvm_analysis_imp_item_collected  -     @681 
 # -------------------------------------------------------------------------
 # 
 # UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
 # -------------------------------------------------------------------------
 # Name                         Type                             Size  Value
 # -------------------------------------------------------------------------
-# uvm_test_top                 apb_test                         -     @472 
+# uvm_test_top                 rnd_wrt_rd                       -     @472 
 #   env                        apb_env                          -     @480 
-#     agnt1                    apb_mas_agnt                     -     @505 
-#       drv                    apb_mas_driver                   -     @622 
-#         drv2scb              uvm_analysis_port                -     @645 
-#         rsp_port             uvm_analysis_port                -     @637 
-#         seq_item_port        uvm_seq_item_pull_port           -     @629 
-#       mas_sequencer          apb_mas_sequencer                -     @513 
-#         rsp_export           uvm_analysis_export              -     @520 
-#         seq_item_export      uvm_seq_item_pull_imp            -     @614 
+#     agnt1                    apb_mas_agnt                     -     @504 
+#       drv                    apb_mas_driver                   -     @621 
+#         drv2scb              uvm_analysis_port                -     @644 
+#         rsp_port             uvm_analysis_port                -     @636 
+#         seq_item_port        uvm_seq_item_pull_port           -     @628 
+#       mas_sequencer          apb_mas_sequencer                -     @512 
+#         rsp_export           uvm_analysis_export              -     @519 
+#         seq_item_export      uvm_seq_item_pull_imp            -     @613 
 #         arbitration_queue    array                            0     -    
 #         lock_queue           array                            0     -    
 #         num_last_reqs        integral                         32    'd1  
 #         num_last_rsps        integral                         32    'd1  
-#       mon                    apb_mas_monitor                  -     @653 
-#         item_collected_port  uvm_analysis_port                -     @672 
-#     scb                      apb_scb                          -     @496 
-#       drv2scb_export         uvm_analysis_imp_drv2scb         -     @690 
-#       item_collected_export  uvm_analysis_imp_item_collected  -     @682 
+#       mon                    apb_mas_monitor                  -     @652 
+#         item_collected_port  uvm_analysis_port                -     @671 
+#     scb                      apb_scb                          -     @495 
+#       drv2scb_export         uvm_analysis_imp_drv2scb         -     @689 
+#       item_collected_export  uvm_analysis_imp_item_collected  -     @681 
 # -------------------------------------------------------------------------
 # 
-# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
-# -------------------------------------------------------------------------
-# Name                         Type                             Size  Value
-# -------------------------------------------------------------------------
-# uvm_test_top                 apb_test                         -     @472 
-#   env                        apb_env                          -     @480 
-#     agnt1                    apb_mas_agnt                     -     @505 
-#       drv                    apb_mas_driver                   -     @622 
-#         drv2scb              uvm_analysis_port                -     @645 
-#         rsp_port             uvm_analysis_port                -     @637 
-#         seq_item_port        uvm_seq_item_pull_port           -     @629 
-#       mas_sequencer          apb_mas_sequencer                -     @513 
-#         rsp_export           uvm_analysis_export              -     @520 
-#         seq_item_export      uvm_seq_item_pull_imp            -     @614 
-#         arbitration_queue    array                            0     -    
-#         lock_queue           array                            0     -    
-#         num_last_reqs        integral                         32    'd1  
-#         num_last_rsps        integral                         32    'd1  
-#       mon                    apb_mas_monitor                  -     @653 
-#         item_collected_port  uvm_analysis_port                -     @672 
-#     scb                      apb_scb                          -     @496 
-#       drv2scb_export         uvm_analysis_imp_drv2scb         -     @690 
-#       item_collected_export  uvm_analysis_imp_item_collected  -     @682 
-# -------------------------------------------------------------------------
-# 
-# UVM_INFO @ 0: run [OBJTN_TRC] Object uvm_test_top raised 1 objection(s): count=1  total=1
-# UVM_INFO @ 0: run [OBJTN_TRC] Object uvm_top added 1 objection(s) to its total (raised from source object uvm_test_top): count=0  total=1
-# UVM_INFO ..\tb\m_monitor.sv(67) @ 15: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=17, 	 pwdata=11,	 prdata=0
-# UVM_INFO ..\tb\m_driver.sv(124) @ 20: uvm_test_top.env.agnt1.drv [apb_mas_driver] 	 PADDR=17,	 PwDATA=11
-# UVM_INFO ..\tb\scoreboard.sv(65) @ 20: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=17, 	 pwdata=11,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(67) @ 25: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=17, 	 pwdata=11,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(67) @ 35: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=1b, 	 pwdata=22,	 prdata=0
-# UVM_INFO ..\tb\m_driver.sv(124) @ 40: uvm_test_top.env.agnt1.drv [apb_mas_driver] 	 PADDR=1b,	 PwDATA=22
-# UVM_INFO ..\tb\scoreboard.sv(65) @ 40: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=1b, 	 pwdata=22,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(67) @ 45: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=1b, 	 pwdata=22,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(67) @ 55: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=19, 	 pwdata=33,	 prdata=0
-# UVM_INFO ..\tb\m_driver.sv(124) @ 60: uvm_test_top.env.agnt1.drv [apb_mas_driver] 	 PADDR=19,	 PwDATA=33
-# UVM_INFO ..\tb\scoreboard.sv(65) @ 60: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=19, 	 pwdata=33,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(67) @ 65: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=19, 	 pwdata=33,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(67) @ 75: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_driver.sv(124) @ 80: uvm_test_top.env.agnt1.drv [apb_mas_driver] 	 PADDR=1c,	 PwDATA=44
-# UVM_INFO ..\tb\scoreboard.sv(65) @ 80: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(67) @ 85: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\scoreboard.sv(88) @ 95: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_not_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 95: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=17, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 95: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=17, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\scoreboard.sv(88) @ 105: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_not_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 105: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=17, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 105: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=17, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_driver.sv(162) @ 105: uvm_test_top.env.agnt1.drv [apb_mas_driver] 	 PADDR=17,	 PRDATA=0
-# UVM_INFO ..\tb\scoreboard.sv(82) @ 115: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=17, 	 pwdata=44,	 prdata=11
-# UVM_INFO ..\tb\scoreboard.sv(83) @ 115: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 115: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=17, 	 pwdata=44,	 prdata=11
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 115: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=17, 	 pwdata=44,	 prdata=11
-# UVM_INFO ..\tb\scoreboard.sv(88) @ 125: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_not_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 125: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=1b, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 125: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=1b, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\scoreboard.sv(88) @ 135: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_not_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 135: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=1b, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 135: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=1b, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_driver.sv(162) @ 135: uvm_test_top.env.agnt1.drv [apb_mas_driver] 	 PADDR=1b,	 PRDATA=0
-# UVM_INFO ..\tb\scoreboard.sv(82) @ 145: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=1b, 	 pwdata=44,	 prdata=22
-# UVM_INFO ..\tb\scoreboard.sv(83) @ 145: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 145: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=1b, 	 pwdata=44,	 prdata=22
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 145: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=1b, 	 pwdata=44,	 prdata=22
-# UVM_INFO ..\tb\scoreboard.sv(88) @ 155: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_not_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 155: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=19, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 155: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=19, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\scoreboard.sv(88) @ 165: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_not_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 165: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=19, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 165: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=19, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_driver.sv(162) @ 165: uvm_test_top.env.agnt1.drv [apb_mas_driver] 	 PADDR=19,	 PRDATA=0
-# UVM_INFO ..\tb\scoreboard.sv(82) @ 175: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=19, 	 pwdata=44,	 prdata=33
-# UVM_INFO ..\tb\scoreboard.sv(83) @ 175: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 175: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=19, 	 pwdata=44,	 prdata=33
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 175: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=19, 	 pwdata=44,	 prdata=33
-# UVM_INFO ..\tb\scoreboard.sv(88) @ 185: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_not_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 185: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 185: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\scoreboard.sv(88) @ 195: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_not_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 195: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 195: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_driver.sv(162) @ 195: uvm_test_top.env.agnt1.drv [apb_mas_driver] 	 PADDR=1c,	 PRDATA=0
-# UVM_INFO ..\tb\scoreboard.sv(82) @ 205: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=1c, 	 pwdata=44,	 prdata=44
-# UVM_INFO ..\tb\scoreboard.sv(83) @ 205: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 205: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=1c, 	 pwdata=44,	 prdata=44
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 205: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=1c, 	 pwdata=44,	 prdata=44
-# UVM_INFO ..\tb\scoreboard.sv(88) @ 215: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_not_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 215: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 215: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\scoreboard.sv(88) @ 225: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_not_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 225: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 225: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\scoreboard.sv(88) @ 235: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_not_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 235: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 235: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO @ 245: run [OBJTN_TRC] Object uvm_test_top dropped 1 objection(s): count=0  total=0
-# UVM_INFO @ 245: run [OBJTN_TRC] Object uvm_test_top all_dropped 1 objection(s): count=0  total=0
-# UVM_INFO @ 245: run [OBJTN_TRC] Object uvm_top subtracted 1 objection(s) from its total (dropped from source object uvm_test_top): count=0  total=0
-# UVM_INFO ..\tb\scoreboard.sv(88) @ 245: uvm_test_top.env.scb [uvm_test_top.env.scb] read_operation_not_matched_with_write_operation
-# UVM_INFO ..\tb\scoreboard.sv(97) @ 245: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO ..\tb\m_monitor.sv(81) @ 245: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=1c, 	 pwdata=44,	 prdata=0
-# UVM_INFO @ 245: run [OBJTN_TRC] Object uvm_top subtracted 1 objection(s) from its total (all_dropped from source object uvm_test_top): count=0  total=0
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 245: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ..\tb\scoreboard.sv(97) @ 15: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=a7, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(81) @ 15: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=a7, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\scoreboard.sv(97) @ 25: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=a7, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(81) @ 25: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=a7, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\m_driver.sv(162) @ 25: uvm_test_top.env.agnt1.drv [apb_mas_driver] 	 PADDR=a7,	 PRDATA=0
+# UVM_INFO ..\tb\scoreboard.sv(97) @ 35: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=a7, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(81) @ 35: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=a7, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\scoreboard.sv(97) @ 45: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=b5, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(81) @ 45: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=b5, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\scoreboard.sv(97) @ 55: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=b5, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(81) @ 55: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=b5, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\m_driver.sv(162) @ 55: uvm_test_top.env.agnt1.drv [apb_mas_driver] 	 PADDR=b5,	 PRDATA=0
+# UVM_INFO ..\tb\scoreboard.sv(97) @ 65: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=b5, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(81) @ 65: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=b5, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\scoreboard.sv(97) @ 75: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=c5, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(81) @ 75: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=c5, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\scoreboard.sv(97) @ 85: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=c5, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(81) @ 85: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=c5, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\m_driver.sv(162) @ 85: uvm_test_top.env.agnt1.drv [apb_mas_driver] 	 PADDR=c5,	 PRDATA=0
+# UVM_INFO ..\tb\scoreboard.sv(97) @ 95: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=c5, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(81) @ 95: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=c5, 	 pwdata=0,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(67) @ 105: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=37, 	 pwdata=773e9229,	 prdata=0
+# UVM_INFO ..\tb\m_driver.sv(124) @ 110: uvm_test_top.env.agnt1.drv [apb_mas_driver] 	 PADDR=37,	 PwDATA=773e9229
+# UVM_INFO ..\tb\scoreboard.sv(65) @ 110: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=37, 	 pwdata=773e9229,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(67) @ 115: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=37, 	 pwdata=773e9229,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(67) @ 125: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=bd, 	 pwdata=e1b284b,	 prdata=0
+# UVM_INFO ..\tb\m_driver.sv(124) @ 130: uvm_test_top.env.agnt1.drv [apb_mas_driver] 	 PADDR=bd,	 PwDATA=e1b284b
+# UVM_INFO ..\tb\scoreboard.sv(65) @ 130: uvm_test_top.env.scb [uvm_test_top.env.scb]  	 paddr=bd, 	 pwdata=e1b284b,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(67) @ 135: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=bd, 	 pwdata=e1b284b,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(67) @ 145: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=bd, 	 pwdata=e1b284b,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(67) @ 155: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=bd, 	 pwdata=e1b284b,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(67) @ 165: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=bd, 	 pwdata=e1b284b,	 prdata=0
+# UVM_INFO ..\tb\m_monitor.sv(67) @ 175: uvm_test_top.env.agnt1.mon [uvm_test_top.env.agnt1.mon]  	 paddr=bd, 	 pwdata=e1b284b,	 prdata=0
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 180: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   85
+# UVM_INFO :   39
 # UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
 # ** Report counts by id
-# [OBJTN_TRC]     6
 # [Questa UVM]     2
 # [RNTST]     1
 # [TEST_DONE]     1
-# [UVMTOP]     3
-# [apb_mas_driver]     8
-# [uvm_test_top.env.agnt1.mon]    24
-# [uvm_test_top.env.scb]    40
+# [UVMTOP]     2
+# [apb_mas_driver]     5
+# [uvm_test_top.env.agnt1.mon]    17
+# [uvm_test_top.env.scb]    11
 # ** Note: $finish    : C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 245 ns  Iteration: 54  Instance: /tb_top
+#    Time: 180 ns  Iteration: 54  Instance: /tb_top
 # 1
 # Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
 # quit
-coverage report -html -htmldir covhtmlreport -source -details -assert -directive -cvg -code bcefst -threshL 50 -threshH 90
-# Report created in covhtmlreport/index.html
-coverage exclude -src ../tb/m_driver.sv -scope /tb_top/#INITIAL#69 -line 26
-# ** Warning: (vsim-4053) Scope '/tb_top/#INITIAL#69' was not found or has null coverage data.
-# ** Warning: (vsim-4036) The 'coverage exclude' command had no effect on some/all objects because
-# no matching coverage data was found.
-# 
-coverage exclude -src ../tb/m_driver.sv -scope /tb_top/#INITIAL#69 -line 26
-# ** Warning: (vsim-4053) Scope '/tb_top/#INITIAL#69' was not found or has null coverage data.
-# ** Warning: (vsim-4036) The 'coverage exclude' command had no effect on some/all objects because
-# no matching coverage data was found.
-# 
-coverage exclude -src ../tb/m_driver.sv -line 26
-coverage exclude -src C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/reg/uvm_reg_map.svh -line 1735
-# ** Warning: (vsim-4053) File 'C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/reg/uvm_reg_map.svh' was not found or has null coverage data.
-# ** Warning: (vsim-4036) The 'coverage exclude' command had no effect on some/all objects because
-# no matching coverage data was found.
-# 
-coverage exclude -src C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/reg/uvm_reg_map.svh -line 1735
-# ** Warning: (vsim-4053) File 'C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/reg/uvm_reg_map.svh' was not found or has null coverage data.
-# ** Warning: (vsim-4036) The 'coverage exclude' command had no effect on some/all objects because
-# no matching coverage data was found.
-# 
-coverage exclude -src C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/reg/uvm_reg_map.svh -line 1735
-# ** Warning: (vsim-4053) File 'C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/reg/uvm_reg_map.svh' was not found or has null coverage data.
-# ** Warning: (vsim-4036) The 'coverage exclude' command had no effect on some/all objects because
-# no matching coverage data was found.
-# 
+# Saving coverage database on exit...
+# ** Error: (vsim-7) Failed to open UCDB file "<TESTSET_CODE_COVER>.ucdb" in write mode.
+# ** Error: (vsim-7) Failed to open UCDB file "<TESTSET_CODE_COVER>.ucdb" in write mode.
+# End time: 13:05:52 on Jul 24,2023, Elapsed time: 1:26:30
+# Errors: 2, Warnings: 9

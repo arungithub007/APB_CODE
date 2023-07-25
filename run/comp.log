@@ -1,19 +1,19 @@
 QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
-Start time: 10:59:22 on Jul 21,2023
+Start time: 11:39:16 on Jul 24,2023
 vlog "+acc" -sv ../dut/apb_slave.v "+indir+../dut" ../tb/testbench.sv "+indir+../tb" -l comp.log 
 -- Compiling module apb_slave
 ** Note: (vlog-2286) ../tb/testbench.sv(11): Using implicit +incdir+C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
 -- Compiling interface apb_intf
 ** Warning: ** while parsing file included at ../tb/testbench.sv(12)
-** at ..\tb\interface.sv(30): (vlog-2244) Variable 'cvg' is implicitly static. You must either explicitly declare it as static or automatic
+** at ..\tb\interface.sv(44): (vlog-2244) Variable 'cvg' is implicitly static. You must either explicitly declare it as static or automatic
 or remove the initialization in the declaration of variable.
 ** Warning: ** while parsing file included at ../tb/testbench.sv(12)
-** at ..\tb\interface.sv(33): (vlog-2240) Treating stand-alone use of function 'get_inst_coverage' as an implicit VOID cast.
+** at ..\tb\interface.sv(47): (vlog-2240) Treating stand-alone use of function 'get_inst_coverage' as an implicit VOID cast.
 -- Compiling package testbench_sv_unit
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 -- Compiling module tb_top
 
 Top level modules:
 	tb_top
-End time: 10:59:22 on Jul 21,2023, Elapsed time: 0:00:00
+End time: 11:39:17 on Jul 24,2023, Elapsed time: 0:00:01
 Errors: 0, Warnings: 2

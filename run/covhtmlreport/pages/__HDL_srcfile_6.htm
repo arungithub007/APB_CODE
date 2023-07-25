@@ -32,12 +32,12 @@
 <a name="22"><q-n>     22  </q-n></a> <q-w>task</q-w> body();
 <a name="23"><q-n>     23  </q-n></a>	<q-m>//  req = apb_seq_item::type_id::create("req");</q-m>
 <a name="24"><q-n>     24  </q-n></a>	<q-m>//	repeat(5) `uvm_do_with(req ,{req.pwrite==1'b1;})</q-m>
-<a name="25"><q-n>     25  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 8'h11;})
-<a name="26"><q-n>     26  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 8'h22;})
-<a name="27"><q-n>     27  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 8'h33;})
-<a name="28"><q-n>     28  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 8'h44;})
+<a name="25"><q-n>     25  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 32'h11;})
+<a name="26"><q-n>     26  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 32'h22;})
+<a name="27"><q-n>     27  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 32'h33;})
+<a name="28"><q-n>     28  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 32'h44;})
 <a name="29"><q-n>     29  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h17;})
-<a name="30"><q-n>     30  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 6'h1b;})
+<a name="30"><q-n>     30  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h1b;})
 <a name="31"><q-n>     31  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h19;})
 <a name="32"><q-n>     32  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h1c;})
 <a name="33"><q-n>     33  </q-n></a> <q-w>endtask</q-w>:body
@@ -73,10 +73,10 @@
 <a name="63"><q-n>     63  </q-n></a> <q-w>task</q-w> body();
 <a name="64"><q-n>     64  </q-n></a>	<q-m>//  req = apb_seq_item::type_id::create("req");</q-m>
 <a name="65"><q-n>     65  </q-n></a>	<q-m>//	repeat(5) `uvm_do_with(req ,{req.pwrite==1'b1;})</q-m>
-<a name="66"><q-n>     66  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 8'h11;})
-<a name="67"><q-n>     67  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 8'h22;})
-<a name="68"><q-n>     68  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 8'h33;})
-<a name="69"><q-n>     69  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 8'h44;})
+<a name="66"><q-n>     66  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 32'h11;})
+<a name="67"><q-n>     67  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 32'h22;})
+<a name="68"><q-n>     68  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 32'h33;})
+<a name="69"><q-n>     69  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 32'h44;})
 <a name="70"><q-n>     70  </q-n></a> <q-w>endtask</q-w>:body
 <a name="71"><q-n>     71  </q-n></a>
 <a name="72"><q-n>     72  </q-n></a><q-w>endclass</q-w>:apb_mas_sequence1
@@ -118,13 +118,13 @@
 <a name="108"><q-n>     108  </q-n></a>	<q-w>endfunction</q-w>:<q-w>new</q-w>
 <a name="109"><q-n>     109  </q-n></a>
 <a name="110"><q-n>     110  </q-n></a>	<q-w>task</q-w> body();
-<a name="111"><q-n>     111  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 8'h11;})	
+<a name="111"><q-n>     111  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 32'h11;})	
 <a name="112"><q-n>     112  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h17;})
-<a name="113"><q-n>     113  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 8'h22;})
+<a name="113"><q-n>     113  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 32'h22;})
 <a name="114"><q-n>     114  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h1b;})
-<a name="115"><q-n>     115  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 8'h33;})
+<a name="115"><q-n>     115  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 32'h33;})
 <a name="116"><q-n>     116  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h19;})
-<a name="117"><q-n>     117  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 8'h44;})
+<a name="117"><q-n>     117  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 32'h44;})
 <a name="118"><q-n>     118  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h1c;})
 <a name="119"><q-n>     119  </q-n></a>	<q-w>endtask</q-w>:body                            
 <a name="120"><q-n>     120  </q-n></a><q-w>endclass</q-w>:apb_mas_sequence3
@@ -178,10 +178,10 @@
 <a name="168"><q-n>     168  </q-n></a>	<q-w>endfunction</q-w>:<q-w>new</q-w>
 <a name="169"><q-n>     169  </q-n></a>
 <a name="170"><q-n>     170  </q-n></a>    <q-w>task</q-w> body();
-<a name="171"><q-n>     171  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 8'h11;})
-<a name="172"><q-n>     172  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 8'h22;})
-<a name="173"><q-n>     173  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 8'h33;})
-<a name="174"><q-n>     174  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 8'h44;})
+<a name="171"><q-n>     171  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h17; req.pwdata == 32'h11;})
+<a name="172"><q-n>     172  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1b; req.pwdata == 32'h22;})
+<a name="173"><q-n>     173  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h19; req.pwdata == 32'h33;})
+<a name="174"><q-n>     174  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b1;	req.paddr == 8'h1c; req.pwdata == 32'h44;})
 <a name="175"><q-n>     175  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h17;})
 <a name="176"><q-n>     176  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 6'h1b;})
 <a name="177"><q-n>     177  </q-n></a>	`uvm_do_with(req, { req.pwrite == 1'b0;	req.paddr == 8'h19;})

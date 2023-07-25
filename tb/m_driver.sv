@@ -165,7 +165,7 @@ m_conf.print();
 	
 endtask: rd_data
 
-    endclass:apb_mas_driver
+endclass:apb_mas_driver
  
 
 
@@ -174,6 +174,95 @@ endtask: rd_data
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
 
 
 
